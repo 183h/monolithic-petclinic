@@ -20,6 +20,7 @@
         <module>monolith</module>
         <module>vets</module>
         <module>management</module>
+        <module>tasks</module>
     </modules>
 
     <properties>
