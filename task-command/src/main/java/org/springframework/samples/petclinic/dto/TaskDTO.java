@@ -1,38 +1,18 @@
-package org.springframework.samples.petclinic.domain;
+package org.springframework.samples.petclinic.dto;
+
+import org.springframework.samples.petclinic.domain.Status;
 
 import java.time.LocalDate;
 
-import javax.persistence.*;
+public class TaskDTO {
 
-@Entity
-@Table(name = "task")
-public class Task extends BaseEntity {
-
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "due_date")
     private LocalDate dueDate;
-
-    @Column(name = "instructions")
     private String instructions;
-
-    @Column(name="status")
-    @Enumerated(EnumType.STRING)
     private Status status;
-
 
     public String getName() {
         return name;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 
     public void setName(String name) {
@@ -55,5 +35,11 @@ public class Task extends BaseEntity {
         this.instructions = instructions;
     }
 
-}
+    public Status getStatus() {
+        return status;
+    }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+}

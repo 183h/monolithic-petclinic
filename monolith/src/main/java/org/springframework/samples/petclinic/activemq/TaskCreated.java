@@ -2,18 +2,18 @@ package org.springframework.samples.petclinic.activemq;
 
 import java.time.LocalDate;
 
-public class RevenueRegistration {
+public class TaskCreated {
 
   private LocalDate paymentDate;
   private int cost;
 
 
-  public RevenueRegistration(LocalDate paymentDate, int cost) {
+  public TaskCreated(LocalDate paymentDate, int cost) {
     this.paymentDate = paymentDate;
     this.cost = cost;
   }
 
-  public RevenueRegistration(){
+  public TaskCreated(){
 
   }
 

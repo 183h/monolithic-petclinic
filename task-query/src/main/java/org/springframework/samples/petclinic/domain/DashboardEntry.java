@@ -1,16 +1,19 @@
 package org.springframework.samples.petclinic.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
 import java.time.LocalDate;
-
-import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "task")
-public class Task extends BaseEntity {
+@Table(name = "dashboard_entry")
+public class DashboardEntry extends BaseEntity {
 
-
-    @Column(name = "name")
-    private String name;
+    @Column(name = "task_name")
+    private String taskName;
 
     @Column(name = "due_date")
     private LocalDate dueDate;
@@ -22,9 +25,12 @@ public class Task extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Column(name="created")
+    private LocalDateTime created;
 
-    public String getName() {
-        return name;
+
+    public String getTaskName() {
+        return taskName;
     }
 
     public Status getStatus() {
@@ -35,8 +41,8 @@ public class Task extends BaseEntity {
         this.status = status;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTaskName(String name) {
+        this.taskName = name;
     }
 
     public LocalDate getDueDate() {
@@ -55,5 +61,12 @@ public class Task extends BaseEntity {
         this.instructions = instructions;
     }
 
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
 }
 

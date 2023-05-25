@@ -1,3 +1,1 @@
-INSERT INTO revenue VALUES (1, '2013-01-04', 100);
-INSERT INTO revenue VALUES (2, '2013-01-04', 250);
-INSERT INTO revenue VALUES (3, '2013-01-04', 300);
+INSERT INTO dashboard_entry VALUES (1, 'clean the floor', '2013-05-25', 'use the mop', 'NEW', now());

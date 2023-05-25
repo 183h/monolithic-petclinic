@@ -13,37 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.management;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.List;
+package org.springframework.samples.petclinic.repository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.samples.petclinic.managementdto.YearlyRevenueDto;
+import org.springframework.samples.petclinic.domain.DashboardEntry;
 
-/**
- * @author Ken Krebs
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Sam Brannen
- * @author Michael Isvy
- * @author Dave Syer
- */
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest
-class ManagementServiceLocalTests {
+class DashboardEntryRepositoryIntegrationTest {
 
-    @Autowired
-    ManagementService service;
 
-    @Test
-    void shouldListYearlyRevenue() {
-        List<YearlyRevenueDto> yearlyRevenues = service.listYearlyRevenue();
+  @Autowired
+  DashboardEntryRepository repository;
 
-        assertThat(yearlyRevenues).hasSize(1);
-        assertThat(yearlyRevenues.get(0)
-                .getTotal()).isEqualTo(650L);
-    }
+  @Test
+  void testGenerateRevenueReport() {
+    Optional<DashboardEntry> dashboardEntry = repository.findById(1);
+
+    assertThat(dashboardEntry.isPresent());
+  }
 }
